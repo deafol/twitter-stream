@@ -14,7 +14,7 @@ class TwitterUser {
 
     @Override
     String toString() {
-        return "TwitterUser{" +
+        return "\nTwitterUser{" +
                 "id=" + id +
                 ", creationDate='" + creationDate + '\'' +
                 ", name=" + name +

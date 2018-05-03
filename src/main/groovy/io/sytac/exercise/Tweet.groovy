@@ -15,11 +15,10 @@ class Tweet {
 
     @Override
     String toString() {
-        return "Tweet{" +
+        return "\nTweet{" +
                 "id=" + id +
                 ", creationDate='" + creationDate + '\'' +
                 ", text='" + text + '\'' +
-                ", author='" + author + '\'' +
                 '}'
     }
 }
