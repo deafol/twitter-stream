@@ -12,9 +12,9 @@ class TweetParserSpec extends Specification {
         when:
             def tweets = new TweetParser().parse(testStream())
         then:
-            2 == tweets.size()
-            991625081062350848 == tweets[0].id
-            991625081062350849 == tweets[1].id
+            tweets.size() == 2
+            tweets[0].id == 991625081062350848
+            tweets[1].id == 991625081062350849
             tweets.each { println it }
     }
 
@@ -25,7 +25,7 @@ class TweetParserSpec extends Specification {
         when:
             def tweets = parser.parse(testStream(8))
         then:
-            4 == tweets.size()
+            tweets.size() == 4
             tweets.each { println it }
     }
 

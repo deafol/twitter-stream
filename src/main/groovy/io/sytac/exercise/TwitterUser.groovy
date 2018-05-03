@@ -14,11 +14,6 @@ class TwitterUser {
 
     @Override
     String toString() {
-        return "\nTwitterUser{" +
-                "id=" + id +
-                ", creationDate='" + creationDate + '\'' +
-                ", name=" + name +
-                ", screenName=" + screenName +
-                '}'
+        "\nAuthor {id:$id, creationDate: $creationDate, name: $name, screenName: $screenName}"
     }
 }

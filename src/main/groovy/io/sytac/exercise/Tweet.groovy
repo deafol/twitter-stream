@@ -12,13 +12,8 @@ class Tweet {
     @Key("user")
     TwitterUser author
 
-
     @Override
     String toString() {
-        return "\nTweet{" +
-                "id=" + id +
-                ", creationDate='" + creationDate + '\'' +
-                ", text='" + text + '\'' +
-                '}'
+        "\n  Tweet {id:$id, creationDate: $creationDate, text: $text}"
     }
 }

@@ -16,7 +16,7 @@ def tweets = new TweetParser().parse(request.execute().content)
 
 logger.write("Bieber tweets (${tweets.size()}):\n")
 logger.withWriter {writer ->
-    new TweetSorter().sort(tweets).each {writer.write(it.toString())}
+    new TweetSorter().groupAndSort(tweets).each {writer.write(it.toString())}
 }
 
 
