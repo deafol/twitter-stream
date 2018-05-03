@@ -12,19 +12,17 @@ atlassian-ide-plugin.xml
 # Mac
 .DS_Store
 
-.gradle
-
-
 
 # OLD ANT
-
 bin
 build
 build-dist
 build.properties
 
-# livewords files
+# MISC
 working-dir
 classes/
 gradlew*
 gradle/
+.gradle
+target/
