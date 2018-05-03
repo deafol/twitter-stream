@@ -1,0 +1,30 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+atlassian-ide-plugin.xml
+
+# Mac
+.DS_Store
+
+.gradle
+
+
+
+# OLD ANT
+
+bin
+build
+build-dist
+build.properties
+
+# livewords files
+working-dir
+classes/
+gradlew*
+gradle/
