@@ -17,7 +17,7 @@ class TweetParserSpec extends Specification {
 
     def "test it"() {
         when:
-            def tweets = new TweetParser().parse(testResponse())
+            def tweets = new TweetParser().parse(testStream())
         then:
             tweets != null
             tweets.each {println it.id}
@@ -41,9 +41,10 @@ class TweetParserSpec extends Specification {
         def request = transport.createRequestFactory().buildGetRequest(HttpTesting.SIMPLE_GENERIC_URL)
         request.parser = new JsonObjectParser(TweetParser.JSON_FACTORY)
         request.execute()
-//        LowLevelHttpResponse response = new MockLowLevelHttpResponse()
-//        response.content = new ClassPathResource("tweet.json").inputStream
-//        new HttpResponse(new MockLowLevelHttpRequest(), response)
 
+    }
+
+    def testStream() {
+        new ClassPathResource("tweets.json").inputStream
     }
 }

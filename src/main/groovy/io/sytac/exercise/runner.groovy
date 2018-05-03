@@ -17,7 +17,7 @@ HttpRequest request = factory.buildGetRequest(url)
 //request.setReadTimeout(5000)
 request.parser = new JsonObjectParser(new JacksonFactory())
 HttpResponse response = request.execute()
-new TweetParser().parse(response).each {println()}
+new TweetParser().parse(response.content).each {println()}
 
 //new File("output.json").withWriter {writer ->
 //    def input = new InputStreamReader(response.getContent())
