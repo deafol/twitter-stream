@@ -2,24 +2,23 @@ package io.sytac.exercise
 
 import com.google.api.client.util.Key
 
-class Tweet {
+class TwitterUser {
     @Key
     def id
     @Key("created_at")
     def creationDate
     @Key
-    def text
-    @Key("user")
-    TwitterUser author
-
+    def name
+    @Key("screen_name")
+    def screenName
 
     @Override
     String toString() {
-        return "Tweet{" +
+        return "TwitterUser{" +
                 "id=" + id +
                 ", creationDate='" + creationDate + '\'' +
-                ", text='" + text + '\'' +
-                ", author='" + author + '\'' +
+                ", name=" + name +
+                ", screenName=" + screenName +
                 '}'
     }
 }
