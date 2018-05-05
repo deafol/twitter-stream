@@ -5,7 +5,6 @@ import spock.lang.Specification
 import java.time.Instant
 import java.time.ZoneId
 import java.time.ZonedDateTime
-import java.time.temporal.TemporalAccessor
 
 class TweetSorterSpec extends Specification {
 
@@ -20,7 +19,7 @@ class TweetSorterSpec extends Specification {
             def tweet3 = new Tweet(id: 3, creationDate: aCreationDate, text: "text3", author: author2)
             def tweets = [tweet1, tweet2, tweet3]
         when:
-            def sortedTweets = new TweetSorter().groupAndSort(tweets)
+            def sortedTweets = TweetSorter.groupAndSort(tweets)
         then: "check the grouping: 2 authors, resp 2 and 1 tweets"
             sortedTweets.size() == 2
             sortedTweets.get(author1).size() == 2
@@ -36,7 +35,7 @@ class TweetSorterSpec extends Specification {
         setup:
             ZonedDateTime zonedDt = ZonedDateTime.of(2018,5,2,10,26,57,0,ZoneId.of("UTC"))
         expect:
-            new TweetSorter().parseDate("Wed May 02 10:26:57 +0000 2018") == Date.from(Instant.from(zonedDt))
+            TweetSorter.parseDate("Wed May 02 10:26:57 +0000 2018") == Date.from(Instant.from(zonedDt))
     }
 
 }
