@@ -5,12 +5,14 @@ import java.text.SimpleDateFormat
 class TweetSorter {
 
     /**
-     * Groups a list of tweets by its author (creating a map wit sublists of tweets) and
-     * sorts the output by authors creationDate ascending
+     * First sorts a list of tweets by their creationDate ascending, then
+     * groups the list by its author (creating a map wit sublists of tweets) and
+     * finally sorts the output by authors creationDate ascending
      */
     static groupAndSort(List<Tweet> tweets) {
-        tweets.groupBy { tweet -> tweet.author }
-                .sort { a, b -> parseDate(a.key["creationDate"]) <=> parseDate(b.key["creationDate"])}
+        tweets.sort { a, b -> parseDate(a["creationDate"]) <=> parseDate(b["creationDate"]) }
+                .groupBy { tweet -> tweet.author }
+                .sort { a, b -> parseDate(a.key["creationDate"]) <=> parseDate(b.key["creationDate"]) }
     }
 
     /**

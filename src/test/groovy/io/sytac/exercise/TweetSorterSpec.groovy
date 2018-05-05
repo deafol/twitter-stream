@@ -11,12 +11,13 @@ class TweetSorterSpec extends Specification {
 
     def "testing grouping and sorting"() {
         setup:
-            def author1 = new TwitterUser(id: 1, creationDate: "Fri Sep 25 19:55:36 +0000 2015", name: "author1", screenName: "auth1")
-            def author2 = new TwitterUser(id: 2, creationDate: "Thu Sep 24 19:55:36 +0000 2015", name: "author2", screenName: "auth2")
-            def aCreationDate = "Fri Sep 25 19:55:36 +0000 2015"
-            def tweet1 = new Tweet(id: 1, creationDate: aCreationDate, text: "text1", author: author1)
-            def tweet2 = new Tweet(id: 2, creationDate: aCreationDate, text: "text2", author: author1)
-            def tweet3 = new Tweet(id: 3, creationDate: aCreationDate, text: "text3", author: author2)
+            def earlyDate = "Thu Sep 24 19:55:36 +0000 2015"
+            def laterDate = "Fri Sep 25 19:55:36 +0000 2015"
+            def author1 = new TwitterUser(id: 1, creationDate: laterDate, name: "author1", screenName: "auth1")
+            def author2 = new TwitterUser(id: 2, creationDate: earlyDate, name: "author2", screenName: "auth2")
+            def tweet1 = new Tweet(id: 1, creationDate: laterDate, text: "text1", author: author1)
+            def tweet2 = new Tweet(id: 2, creationDate: earlyDate, text: "text2", author: author1)
+            def tweet3 = new Tweet(id: 3, creationDate: earlyDate, text: "text3", author: author2)
             def tweets = [tweet1, tweet2, tweet3]
         when:
             def sortedTweets = TweetSorter.groupAndSort(tweets)
@@ -24,9 +25,11 @@ class TweetSorterSpec extends Specification {
             sortedTweets.size() == 2
             sortedTweets.get(author1).size() == 2
             sortedTweets.get(author2).size() == 1
-        and: "check the sorting: author1 before 2"
+        and: "check the sorting: author2 before author1, tweet2 before tweet1 "
             sortedTweets.entrySet()[0].key.name == 'author2'
             sortedTweets.entrySet()[1].key.name == 'author1'
+            sortedTweets.values()[1][0].id == 2
+            sortedTweets.values()[1][1].id == 1
 
             sortedTweets.each { println it }
     }

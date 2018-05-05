@@ -9,6 +9,19 @@
 > *                                                           *
 > *************************************************************
 
+Solution usage instructions:
+
+To use and test the solution inside a development environment, just
+- build the project (requires java 8)
+- run the file `Runner.groovy`
+- follow the instructions displayed on screen, a report is generated in a file called `bieber-tweets.txt` in the root folder of the project
+
+To use the solution as an executable
+- build the project using maven, either execute `mvn package` or `mvn install` from either the command line in the root folder of the solution or from your development environment
+- locate the executable jar `bieber-tweets-1.0.0.one-jar.jar` (default in subfoler `target`) and execute it with `java -jar`, e.g. from commandline `java -jar target/bieber-tweets-1.0.0.one-jar.jar`
+- follow the instructions displayed on screen, a report is generated in a file called `bieber-tweets.txt` in the working folder of the executing command
+
+================================== ORIGINAL ASSIGNMENT BELOW ================
 # Sytac Java Exercise #
 
 This development test is used as part of Sytac selection for Java developers. You are requested to develop a simple application that covers all the requirements listed below. To have an indication of the criteria that will be used to judge your submission, all the following are considered as metrics of good development:
@@ -24,7 +37,7 @@ While no specific time limit is mandated to complete the exercise, you will be a
 
 ## Task ##
 
-We would like you to write code that will cover the functionality explained below and provide us with the source, instructions to build and run the appliocation  as well as a sample output of an execution:
+We would like you to write code that will cover the functionality explained below and provide us with the source, instructions to build and run the application  as well as a sample output of an execution:
 
 + Connect to the [Twitter Streaming API](https://dev.twitter.com/streaming/overview)
     * Use the following values:
@@ -46,7 +59,7 @@ We would like you to write code that will cover the functionality explained belo
     * The creation date of the user as epoch value
     * The name of the user
     * The screen name of the user
-+ All the above infomation is provided in either SDTOUT or a log file
++ All the above infomartion is provided in either SDTOUT or a log file
 + You are free to choose the output format, provided that it makes it easy to parse and process by a machine
 
 ### __Bonus points for:__ ###

@@ -1,8 +1,8 @@
+package io.sytac.exercise
+
 import com.google.api.client.http.GenericUrl
 import com.google.api.client.http.HttpRequest
 import com.google.api.client.http.HttpRequestFactory
-import io.sytac.exercise.TweetParser
-import io.sytac.exercise.TweetSorter
 import org.interview.oauth.twitter.TwitterAuthenticator
 
 def logger = System.out
@@ -15,10 +15,9 @@ HttpRequest request = factory.buildGetRequest(new GenericUrl("https://stream.twi
 logger.println "Parsing Twitter stream"
 def tweets = TweetParser.parse(request.execute().content)
 
-logger.println "Creating report"
-def output = new File("bieber-tweets.txt")
-output.write("Bieber tweets (${tweets.size()}):\n")
-output.withWriter {writer ->
+logger.println "Creating report in bieber-tweets.txt"
+new File("bieber-tweets.txt").withWriter { writer ->
+    writer.write("Bieber tweets (${tweets.size()}):\n")
     new TweetSorter().groupAndSort(tweets).each {writer.write(it.toString())}
 }
 logger.println("Done.")
